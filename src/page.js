@@ -1,4 +1,6 @@
 import './style.css';
+import navbar from './index.js';
+import page from './pageTempl.js';
 
 const title = (content) => {
   const div = document.createElement('div');
@@ -11,37 +13,26 @@ const title = (content) => {
   return div;
 };
 
-export const nav = (() => {
-  const div = document.createElement('div');
-  div.className = 'nav';
 
-  const btns = document.createElement('div');
-  btns.className = 'btns';
-  div.appendChild(btns);
-
-  const addBtn = (name) => {
-    const btn = document.createElement('button');
-    btn.textContent = name;
-    btns.appendChild(btn);
-  };
-
-  const element = () => div;
-
-  return {element, addBtn};
-})();
-
-const main = () => {
+const top = () => {
   const container = document.createElement('div');
   container.className = 'container';
 
-  nav.addBtn('Acasa');
-  nav.addBtn('Meniu');
-  nav.addBtn('Galerie');
-  nav.addBtn('Contact');
+  const nav = navbar();
+  nav.addBtn('Acasa', 'Bine ai venit');
+  nav.addBtn('Meniu', 'Shaorma');
+  nav.addBtn('Galerie', 'Poze cu nea ion');
+  nav.addBtn('Contact', '0765782911');
 
   container.appendChild(nav.element());
   container.appendChild(title('Nea Ion Restaurant'));
   return container;
 };
 
-export default main;
+const content = page('Home', 'Bine ai venit!');
+
+
+document.body.appendChild(top());
+document.body.appendChild(content.element());
+
+export default content;
