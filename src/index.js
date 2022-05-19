@@ -1,27 +1,37 @@
-import content from './page';
+import './style.css';
+import navbar from './nav.js';
+import home from './pages/home.js';
+import menu from './pages/menu.js';
 
-const nav = () => {
+const title = (content) => {
   const div = document.createElement('div');
-  div.className = 'nav';
+  div.className = 'title';
 
-  const btns = document.createElement('div');
-  btns.className = 'btns';
-  div.appendChild(btns);
+  const title = document.createElement('h1');
+  title.textContent = content;
 
-  const addBtn = (name, description) => {
-    const btn = document.createElement('button');
-    btn.textContent = name;
-    btns.appendChild(btn);
-
-    btn.addEventListener('click', () => {
-      content.changeTitle(name);
-      content.changeParagraph(description);
-    });
-  };
-
-  const element = () => div;
-
-  return {element, addBtn};
+  div.appendChild(title);
+  return div;
 };
 
-export default nav;
+
+const top = () => {
+  const container = document.createElement('div');
+  container.className = 'container';
+
+  const nav = navbar(content);
+  nav.addBtn(home);
+  nav.addBtn(menu);
+  // nav.addBtn('Contact', '0765782911');
+
+  container.appendChild(nav.element());
+  container.appendChild(title('Nea Ion Restaurant'));
+  return container;
+};
+
+const content = home;
+
+document.body.appendChild(top());
+document.body.appendChild(content.element());
+
+export default content;

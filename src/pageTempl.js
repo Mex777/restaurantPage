@@ -1,26 +1,30 @@
 const page = (name, description) => {
   const div = document.createElement('div');
-  div.className = 'card';
+  div.className = 'content';
 
+  const text = document.createElement('div');
+  text.className = 'textContent';
   const title = document.createElement('h1');
   title.textContent = name;
-  div.appendChild(title);
+  text.appendChild(title);
 
   const par = document.createElement('p');
   par.textContent = description;
-  div.appendChild(par);
+  text.appendChild(par);
+
+  div.appendChild(text);
 
   const changeTitle = (newTitle) => {
     title.textContent = newTitle;
   };
 
-  const changeParagraph = (newParagraph) => {
-    par.textContent = newParagraph;
-  };
-
   const element = () => div;
 
-  return {changeTitle, changeParagraph, element};
+  const getTitle = () => title.textContent;
+
+  const getText = () => text;
+
+  return {changeTitle, element, getTitle, getText};
 };
 
 export default page;
