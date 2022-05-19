@@ -1,6 +1,7 @@
 const page = (name, description) => {
   const div = document.createElement('div');
   div.className = 'content';
+  div.id = 'content';
 
   const text = document.createElement('div');
   text.className = 'textContent';

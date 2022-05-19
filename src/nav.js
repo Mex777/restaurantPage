@@ -1,4 +1,4 @@
-const nav = (content) => {
+const nav = () => {
   const div = document.createElement('div');
   div.className = 'nav';
 
@@ -12,8 +12,9 @@ const nav = (content) => {
     btns.appendChild(btn);
 
     btn.addEventListener('click', () => {
-      document.body.removeChild(document.body.lastElementChild);
-      document.body.appendChild(page.element());
+      const content = document.getElementById('content');
+      content.removeChild(content.lastChild);
+      content.appendChild(page.element());
     });
   };
 

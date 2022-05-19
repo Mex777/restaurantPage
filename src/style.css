@@ -94,3 +94,11 @@ img {
 .home-pic img {
   border-radius: 100%;
 }
+
+.footer {
+  background-color: #7f8061;
+  padding: 0.8rem;
+  color: white;
+  text-align: center;
+  margin: 0;
+}
