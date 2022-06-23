@@ -2,6 +2,7 @@ import './style.css';
 import navbar from './nav.js';
 import home from './pages/home.js';
 import menu from './pages/menu.js';
+import contact from './pages/contact.js';
 import footer from './footer.js';
 
 const title = (content) => {
@@ -23,6 +24,7 @@ const top = () => {
   const nav = navbar();
   nav.addBtn(home);
   nav.addBtn(menu);
+  nav.addBtn(contact);
 
   container.appendChild(nav.element());
   container.appendChild(title('Nea Ion Restaurant'));
